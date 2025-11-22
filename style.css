@@ -1,204 +1,581 @@
-/* style.css */
+/* Основные цвета */
+:root {
+    --primary-color: #003366; /* Темно-синий */
+    --secondary-color: #DAA520; /* Золотисто-желтый */
+    --background-color: #F4F6F8; /* Светло-серый */
+    --text-color: #333; /* Темный серый для основного текста */
+    --light-text-color: #fff; /* Белый текст */
+}
 
-/* General Body Styles */
+/* Общие стили */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Пример шрифта */
-    scroll-behavior: smooth; /* Плавная прокрутка */
-    background-color: #f8f9fa; /* Светлый фон по умолчанию */
-    color: #333; /* Темный текст по умолчанию */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Header & Navigation */
-.navbar-light .navbar-nav .nav-link {
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-    color: #007bff; /* Цвет Bootstrap primary */
+h1, h2, h3 {
+    color: var(--primary-color);
 }
 
-.navbar-light .navbar-nav .nav-link.active {
-    color: #007bff;
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+/* Header */
+.site-header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 15px 0;
+    border-bottom: 5px solid var(--secondary-color);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+.logo h1 {
+    color: var(--light-text-color);
+    margin-bottom: 0;
+    font-size: 2em;
+}
+
+.logo p {
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    margin-top: 0;
+}
+
+.site-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.site-nav li {
+    margin-left: 20px;
+}
+
+.site-nav a {
+    color: var(--light-text-color);
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.navbar-brand img {
-    max-height: 40px; /* Размер логотипа */
+.site-nav a:hover {
+    color: var(--secondary-color);
 }
 
-.bg-light { /* Ensure bg-light has a visible color */
-    background-color: #f8f9fa !important; /* Default light background */
+.header-search {
+    display: flex;
+    align-items: center;
+}
+
+.header-search input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.header-search button {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-search button:hover {
+    background-color: var(--primary-color);
+}
+
+/* --- Новый блок: Стили для выбора языка --- */
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Отступ от предыдущего элемента */
+}
+
+.lang-btn {
+    background-color: transparent;
+    border: 1px solid var(--light-text-color);
+    color: var(--light-text-color);
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lang-btn.active-lang {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    font-weight: bold;
 }
 
 /* Hero Section */
-.hero-section {
+.hero {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 80px 0;
+    background-image: url('https://via.placeholder.com/1920x400?text=HEADER+IMAGE'); /* Замените на реальное изображение */
+    background-size: cover;
+    background-position: center;
     position: relative;
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #007bff; /* Default background color if hero-background is not set */
-    color: white;
-    padding-top: 70px; /* Adjust for fixed header */
 }
 
-.hero-background {
+.hero::before { /* Полупрозрачный слой для лучшего контраста текста */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/hero-background.jpg'); /* Убедитесь, что путь к фоновому изображению верный */
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.5); /* Затемнение фонового изображения */
-    z-index: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 51, 102, 0.7); /* Полупрозрачный темно-синий */
 }
 
-.hero-section h1 {
-    font-size: 4.5rem; /* Responsive font size */
-    margin-bottom: 1rem;
+.hero .container {
+    position: relative; /* Чтобы контент был поверх псевдоэлемента */
+    z-index: 1;
 }
 
-.hero-section p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
 }
 
 /* Services Section */
-#services .fa-3x {
-    color: #007bff;
+.services {
+    padding: 40px 0;
+    text-align: center;
 }
 
-/* About Us Section */
-#about img.rounded-circle {
-    border: 4px solid #007bff; /* Пример: синяя рамка для круглых фото */
+.service-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+    max-width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid var(--secondary-color);
+    background-color: var(--background-color);
+    padding: 5px;
+}
+
+.service-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* About Section */
+.about {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+.about p {
+    margin-bottom: 15px;
 }
 
 /* Team Section */
-.social-icons a {
-    color: #555;
-    transition: color 0.3s ease-in-out;
+.team {
+    padding: 40px 0;
 }
 
-.social-icons a:hover {
-    color: #007bff;
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-/* Testimonials Section */
-#testimonials .carousel-item {
-    padding: 2rem 0;
-}
-
-#testimonials .lead {
-    font-size: 1.3rem;
-    color: #555;
-}
-
-#testimonials h4 {
-    margin-top: 1rem;
-}
-
-/* Contact Us Section */
-#contact .fa-map-marker-alt,
-#contact .fa-phone,
-#contact .fa-envelope {
-    color: #007bff;
-}
-
-.social-links a {
-    color: #555;
-    transition: color 0.3s ease-in-out;
-}
-
-.social-links a:hover {
-    color: #007bff;
-}
-
-/* Calculator Section */
-#calculator .card-body {
-    background-color: #ffffff; /* Белый фон для карточки калькулятора */
-}
-
-#calculator .form-label {
-    font-weight: 500;
-}
-
-#calculator .form-control {
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ced4da;
-}
-
-#calculator .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-}
-
-#calculator button[type="submit"] {
-    background-color: #28a745; /* Зеленый цвет кнопки */
-    border-color: #28a745;
-    font-weight: bold;
-}
-
-#calculator button[type="submit"]:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-}
-
-#calculator #result {
-    background-color: #e9ecef; /* Светлый фон для результата */
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #dee2e6;
+.team-member {
     text-align: center;
-    font-weight: bold;
-    color: #007bff; /* Цвет Bootstrap primary */
+    flex-basis: 280px; /* Основа для каждого блока */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#calculator #result.error {
-    color: red; /* Красный для сообщений об ошибке */
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary-color);
+}
+
+.team-member h3 {
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.team-member .contact-link {
+    margin-top: 15px;
+}
+
+.team-member .contact-link a {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--background-color);
+    padding: 40px 0;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Чтобы padding не влиял на общую ширину */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Позволяет менять высоту */
+}
+
+/* Newsletter Section */
+.newsletter {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 40px 0;
+}
+
+.newsletter p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 300px;
+    max-width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.newsletter .btn {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 25px;
+}
+
+.newsletter .btn:hover {
+    background-color: var(--primary-color);
 }
 
 /* Footer */
-footer {
-    background-color: #343a40 !important; /* Темный фон футера */
-    color: #ffffff;
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
 }
 
-footer p {
-    margin-bottom: 0.5rem;
+.site-footer p {
+    margin: 5px 0;
 }
 
-/* Responsive adjustments */
+.site-footer a {
+    color: var(--secondary-color);
+}
+
+/* Адаптивность */
 @media (max-width: 992px) {
-    .hero-section h1 {
-        font-size: 3.5rem;
+    .site-header .container {
+        flex-direction: row; /* Возвращаем строку */
+        justify-content: space-between;
+        flex-wrap: wrap; /* Разрешаем перенос */
     }
-    .hero-section p {
-        font-size: 1.2rem;
+    .logo {
+        margin-right: auto; /* Логотип влево */
+        order: 1; /* Первый элемент */
+    }
+    .language-selector {
+        margin-left: 0;
+        order: 2; /* Второй элемент */
+    }
+    .site-nav {
+        order: 4; /* Четвертый элемент */
+        width: 100%; /* Занимает всю ширину */
+        margin-top: 15px; /* Отступ сверху */
+    }
+    .site-nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0; /* Убираем отступ, чтобы лучше вписаться */
+    }
+    .site-nav li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .header-search {
+        order: 3; /* Третий элемент */
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .header-search input[type="text"] {
+        width: 60%;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .service-items {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .team-members {
+        justify-content: center;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%;
+        max-width: 500px; /* Ограничиваем ширину формы и инфо */
+    }
+
+    .newsletter input[type="email"] {
+        width: 60%;
     }
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        padding-top: 60px; /* Adjust for smaller screens if header height changes */
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.3em; }
+
+    .hero h2 {
+        font-size: 2em;
     }
-    .navbar-nav {
-        text-align: center;
+    .hero p {
+        font-size: 1em;
+    }
+
+    .service-item, .team-member {
+        padding: 15px;
+    }
+
+    .service-item img, .team-member img {
+        max-width: 80px;
+        height: 80px;
+    }
+
+    .contact-form {
+        padding: 20px;
     }
 }
 
-@media (max-width: 576px) {
-    .hero-section h1 {
-        font-size: 2.5rem;
+@media (max-width: 480px) {
+    .site-header .container {
+        flex-direction: column; /* Строго по одному */
+        align-items: center;
     }
-    .hero-section p {
-        font-size: 1rem;
+    .logo {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        order: 1; /* Первый элемент */
     }
-    #calculator .col-md-6 {
-        width: 100%; /* Полная ширина калькулятора на маленьких экранах */
+    .language-selector {
+        margin-top: 10px;
+        order: 2; /* Второй элемент */
+        width: 100%;
+        justify-content: center;
+    }
+    .lang-btn {
+        margin: 0 5px; /* Немного меняем отступы для кнопок */
+    }
+    .site-nav {
+        order: 3; /* Третий элемент */
+        width: 100%;
+    }
+    .site-nav ul {
+        margin-top: 15px; /* Добавляем отступ сверху */
+    }
+    .header-search {
+        order: 4; /* Четвертый элемент */
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .header-search input[type="text"],
+    .newsletter input[type="email"] {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .header-search button,
+    .newsletter .btn {
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .hero h2 {
+        font-size: 1.8em;
+    }
+    .hero p {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        padding: 8px 15px;
+    }
+
+    .service-items, .team-members {
+        grid-template-columns: 1fr; /* В один столбец на маленьких экранах */
     }
 }
