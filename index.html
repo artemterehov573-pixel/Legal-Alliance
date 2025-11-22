@@ -3,275 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Alliance</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Custom CSS -->
+    <meta name="description" content="Юридическая компания 'Правовой Альянс' - профессиональная юридическая помощь.">
+    <title>Правовой Альянс - Юридические Услуги</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome (для иконок) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#hero">
-                    <!-- Убедитесь, что путь к logo.png верный -->
-                    <img src="" alt="Legal Alliance Logo" height="40">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#hero">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Услуги</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">О нас</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#team">Команда</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#testimonials">Отзывы</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Контакты</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#calculator">Калькулятор</a>
-                        </li>
-                    </ul>
-                </div>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Правовой Альянс</h1>
+                <p>Профессиональная юридическая помощь</p>
             </div>
-        </nav>
+            <div class="language-selector">
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="#services" data-lang="nav-services">Услуги</a></li>
+                    <li><a href="#about" data-lang="nav-about">О нас</a></li>
+                    <li><a href="#team" data-lang="nav-team">Команда</a></li>
+                    <li><a href="#contact" data-lang="nav-contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Поиск по сайту..." data-lang="header-search-placeholder">
+                <button id="searchButton" data-lang="header-search-button">Поиск</button>
+            </div>
+        </div>
     </header>
-    <!-- End Header -->
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section text-center text-white">
-        <div class="hero-background"></div> <!-- Для фонового изображения -->
-        <div class="container position-relative" style="z-index: 1;">
-            <h1 class="display-1 mb-3">Legal Alliance</h1>
-            <p class="lead mb-4">Ваш надежный партнер в мире права.</p>
-            <a href="#contact" class="btn btn-primary btn-lg me-2">Получить консультацию</a>
-            <a href="#services" class="btn btn-outline-light btn-lg">Наши услуги</a>
-        </div>
-    </section>
-    <!-- End Hero Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Наши услуги</h2>
-            <div class="row">
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <i class="fas fa-balance-scale fa-3x text-primary mb-3"></i>
-                    <h3>Корпоративное право</h3>
-                    <p>Регистрация, реорганизация, сопровождение сделок, юридическое обслуживание бизнеса.</p>
-                </div>
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <i class="fas fa-home fa-3x text-primary mb-3"></i>
-                    <h3>Недвижимость и строительство</h3>
-                    <p>Юридическое сопровождение сделок с недвижимостью, разрешение споров.</p>
-                </div>
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
-                    <h3>Судебные споры</h3>
-                    <p>Представительство в судах общей юрисдикции и арбитражных судах.</p>
-                </div>
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <h2 data-lang="hero-title">Ваша защита в мире права</h2>
+                <p data-lang="hero-text">Мы предлагаем комплексные юридические решения для бизнеса и частных лиц.</p>
+                <a href="#services" class="btn" data-lang="hero-button">Наши услуги</a>
             </div>
-        </div>
-    </section>
-    <!-- End Services Section -->
+        </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">О нашей компании</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <!-- Убедитесь, что путь к images/about-us.jpg верный -->
-                    <img src="" alt="About Us Image" class="img-fluid rounded shadow-sm">
-                </div>
-                <div class="col-md-6">
-                    <h3>Наша миссия</h3>
-                    <p>Мы стремимся предоставить нашим клиентам высококачественные юридические услуги, основанные на глубоком понимании их потребностей и законов.</p>
-                    <h3>Наш подход</h3>
-                    <p>Индивидуальный подход, конфиденциальность и поиск наиболее эффективных решений для каждого клиента.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End About Us Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Наша команда</h2>
-            <div class="row">
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <!-- Убедитесь, что пути к изображениям верные -->
-                    <img src="" alt="Team Member 1" class="rounded-circle mb-3" height="150">
-                    <h4>Иван Иванов</h4>
-                    <p class="text-muted">Ведущий юрист</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin fa-lg me-2"></i></a>
-                        <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+        <section id="services" class="services">
+            <div class="container">
+                <h2 data-lang="services-title">Наши Услуги</h2>
+                <div class="service-items">
+                    <div class="service-item">
+                        <img src="" alt="Консультация">
+                        <h3 data-lang="service-consultation-title">Юридические консультации</h3>
+                        <p data-lang="service-consultation-text">Разъяснения по сложным правовым вопросам, анализ документов.</p>
                     </div>
-                </div>
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <img src="" alt="Team Member 2" class="rounded-circle mb-3" height="150">
-                    <h4>Мария Петрова</h4>
-                    <p class="text-muted">Старший юрист</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin fa-lg me-2"></i></a>
-                        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                    <div class="service-item">
+                        <img src="" alt="Бизнес">
+                        <h3 data-lang="service-business-title">Сопровождение бизнеса</h3>
+                        <p data-lang="service-business-text">Регистрация, реорганизация, договорная работа, защита интересов.</p>
                     </div>
-                </div>
-                <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <img src="" alt="Team Member 3" class="rounded-circle mb-3" height="150">
-                    <h4>Петр Сидоров</h4>
-                    <p class="text-muted">Юрист</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin fa-lg me-2"></i></a>
-                        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                    <div class="service-item">
+                        <img src="" alt="Судебные споры">
+                        <h3 data-lang="service-disputes-title">Судебные споры</h3>
+                        <p data-lang="service-disputes-text">Представительство в судах всех инстанций, защита прав.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="" alt="Недвижимость">
+                        <h3 data-lang="service-real-estate-title">Недвижимость</h3>
+                        <p data-lang="service-real-estate-text">Сопровождение сделок, оформление прав, разрешение споров.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End Team Section -->
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Что говорят наши клиенты</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner text-center">
-                            <div class="carousel-item active">
-                                <p class="lead">"Очень профессиональная команда! Помогли решить сложный вопрос с недвижимостью быстро и эффективно."</p>
-                                <h4>Анна Ковальчук</h4>
-                                <p class="text-muted">Клиент</p>
+        <section id="about" class="about">
+            <div class="container">
+                <h2 data-lang="about-title">О компании "Правовой Альянс"</h2>
+                <p data-lang="about-text-1">
+                    Мы - команда опытных юристов с многолетним стажем работы в различных областях права. Наша миссия – обеспечить каждому клиенту справедливое и эффективное решение его правовых вопросов. Мы ценим доверие наших клиентов и стремимся к максимальной прозрачности и эффективности в каждом деле.
+                </p>
+                <p data-lang="about-text-2">
+                    Наша компания основана на принципах профессионализма, честности и ответственности. Мы постоянно совершенствуем свои знания и навыки, чтобы соответствовать самым высоким стандартам юридической практики.
+                </p>
+                 <h3 data-lang="about-site-title">Наш сайт</h3>
+                <p data-lang="about-site-text-1">
+                    Мы разработали наш веб-сайт, чтобы предоставить вам удобный доступ к информации и услугам. Наш сайт выполнен в современном и адаптивном дизайне, используя элегантное сочетание <strong>темно-синего</strong> (основной), <strong>золотисто-желтого</strong> (акцент) и светлых тонов для комфортного восприятия.
+                </p>
+                <p data-lang="about-site-text-2">
+                    На сайте реализованы следующие функции для вашего удобства:
+                </p>
+                <ul data-lang="about-site-list">
+                    <li data-lang="about-site-list-item-1"><strong>Удобный поиск:</strong> Быстро находите нужную информацию на сайте.</li>
+                    <li data-lang="about-site-list-item-2"><strong>Подписка на новости:</strong> Будьте в курсе последних изменений в законодательстве и новостей компании.</li>
+                    <li data-lang="about-site-list-item-3"><strong>Функция обратной связи:</strong> Легко свяжитесь с нами через удобную форму на сайте.</li>
+                    <li data-lang="about-site-list-item-4"><strong>Адаптивность:</strong> Сайт корректно отображается на любых устройствах – от настольных компьютеров до смартфонов.</li>
+                    <li data-lang="about-site-list-item-5"><strong>Навигация:</strong> Интуитивно понятное меню и плавная прокрутка к разделам.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="team" class="team">
+            <div class="container">
+                <h2 data-lang="team-title">Наша Команда</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="" alt="Иван Петрович Петров">
+                        <h3 data-lang="team-ivan-name">Иван Петрович Петров</h3>
+                        <p data-lang="team-ivan-role">Старший юрист</p>
+                        <p class="contact-link"><a href="#contact" data-lang="team-ivan-contact">Связаться</a></p>
+                    </div>
+                    <div class="team-member">
+                        <img src="" alt="Анна Сергеевна Сидорова">
+                        <h3 data-lang="team-anna-name">Анна Сергеевна Сидорова</h3>
+                        <p data-lang="team-anna-role">Ведущий юрист</p>
+                        <p class="contact-link"><a href="#contact" data-lang="team-anna-contact">Связаться</a></p>
+                    </div>
+                    <div class="team-member">
+                        <img src="" alt="Сергей Николаевич Кузнецов">
+                        <h3 data-lang="team-sergey-name">Сергей Николаевич Кузнецов</h3>
+                        <p data-lang="team-sergey-role">Юрист</p>
+                        <p class="contact-link"><a href="#contact" data-lang="team-sergey-contact">Связаться</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 data-lang="contact-title">Контакты и Обратная Связь</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 data-lang="contact-address-title">Адрес:</h3>
+                        <p data-lang="contact-address-text">г. Москва, ул. Правовая, д. 15, оф. 301</p>
+                        <h3 data-lang="contact-phone-title">Телефон:</h3>
+                        <p><a href="tel:+79167480040" data-lang="contact-phone-link">+7 (916) 748-00-40</a></p>
+                        <h3 data-lang="contact-email-title">Email:</h3>
+                        <p><a href="mailto:artem.terehov738@mail.ru" data-lang="contact-email-link">artem.terehov738@mail.ru</a></p>
+                    </div>
+                    <div class="contact-form">
+                        <h3 data-lang="contact-form-title">Напишите нам</h3>
+                        <form id="feedbackForm">
+                            <div class="form-group">
+                                <label for="name" data-lang="contact-form-name-label">Ваше имя:</label>
+                                <input type="text" id="name" name="name" required>
                             </div>
-                            <div class="carousel-item">
-                                <p class="lead">"Всегда на связи, всегда готовы помочь. Огромное спасибо за поддержку моего бизнеса."</p>
-                                <h4>Дмитрий Смирнов</h4>
-                                <p class="text-muted">Предприниматель</p>
+                            <div class="form-group">
+                                <label for="email" data-lang="contact-form-email-label">Ваш Email:</label>
+                                <input type="email" id="email" name="email" required>
                             </div>
-                            <div class="carousel-item">
-                                <p class="lead">"Рекомендую Legal Alliance всем, кто ищет надежного юридического партнера. Качество услуг на высшем уровне."</p>
-                                <h4>Елена Васильева</h4>
-                                <p class="text-muted">Клиент</p>
+                            <div class="form-group">
+                                <label for="message" data-lang="contact-form-message-label">Сообщение:</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                            <button type="submit" class="btn" data-lang="contact-form-submit-btn">Отправить</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End Testimonials Section -->
+        </section>
 
-    <!-- Contact Us Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Свяжитесь с нами</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h4>Наши контакты</h4>
-                            <p><i class="fas fa-map-marker-alt text-primary me-2"></i> г. Москва, ул. Правовая, д. 1, офис 101</p>
-                            <p><i class="fas fa-phone text-primary me-2"></i> +7 (495) 123-45-67</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> info@legal-alliance.ru</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                                <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                                <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Ваше имя</label>
-                            <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Ваш email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Ваше сообщение</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Введите ваше сообщение" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Отправить</button>
-                    </form>
-                </div>
+        <section class="newsletter">
+            <div class="container">
+                <h2 data-lang="newsletter-title">Подписка на новости</h2>
+                <p data-lang="newsletter-text">Получайте актуальную информацию о законодательстве и наших специальных предложениях.</p>
+                <form id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Введите ваш Email" required data-lang="newsletter-placeholder">
+                    <button type="submit" class="btn" data-lang="newsletter-button">Подписаться</button>
+                </form>
             </div>
-        </div>
-    </section>
-    <!-- End Contact Us Section -->
+        </section>
+    </main>
 
-    <!-- NEW: Calculator Section -->
-    <section id="calculator" class="py-5 bg-light">
+    <footer class="site-footer">
         <div class="container">
-            <h2 class="text-center mb-4">Калькулятор стоимости консультации</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <form id="calculator-form">
-                                <div class="mb-3">
-                                    <label for="hours" class="form-label">Количество часов консультации:</label>
-                                    <input type="number" class="form-control" id="hours" placeholder="Введите количество часов" min="0.1" step="0.1" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="hourly-rate" class="form-label">Ставка за час (руб.):</label>
-                                    <input type="number" class="form-control" id="hourly-rate" value="3000" min="1000" step="100" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Рассчитать</button>
-                            </form>
-                            <div id="result" class="mt-3 text-center fs-5 fw-bold" style="display: none;">
-                                <!-- Здесь будет результат -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End NEW: Calculator Section -->
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p class="mb-2">&copy; 2023 Legal Alliance. Все права защищены.</p>
-            <p class="mb-0">Разработано с <i class="fas fa-heart text-danger"></i></p>
+            <p data-lang="footer-copyright">&copy; 2025 Правовой Альянс. Все права защищены.</p>
+            <p><a href="#" data-lang="footer-privacy">Политика конфиденциальности</a> | <a href="#" data-lang="footer-terms">Условия использования</a></p>
         </div>
     </footer>
-    <!-- End Footer -->
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyv1FfM36j6t6rS0jT0m/4z85/j3t/j/8u5d/hA==" crossorigin="anonymous"></script>
-    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
