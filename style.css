@@ -10,6 +10,7 @@
     --economy-bg-color: #e0f0ff; /* Очень светлый синий для раздела экономики */
     --card-bg-color: #fff; /* Белый фон для карточек */
     --card-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Тень для карточек */
+    --hero-bg-color: #003366; /* Темно-синий фон для hero секции */
 }
 
 body {
@@ -116,15 +117,20 @@ nav ul li a:hover {
 /* Hero Section */
 #hero {
     min-height: 400px;
-    background: url('hero-bg.jpg') no-repeat center center/cover;
+    /* Фон hero секции теперь темно-синий, а текст на нем белый */
+    background-color: var(--hero-bg-color); /* Используем новую переменную */
     text-align: center;
     color: var(--light-text-color);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    /* Если хотите оставить фоновое изображение, то background-image: url('hero-bg.jpg'); */
+    /* и нужно будет убрать background-color или сделать его rgba, чтобы изображение было видно */
 }
 
+/* Если используется фоновое изображение, его затемнение */
+/*
 #hero::before {
     content: '';
     position: absolute;
@@ -135,6 +141,7 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
+*/
 
 #hero .container {
     position: relative;
@@ -243,7 +250,7 @@ nav ul li a:hover {
 /* ==== Стили для раздела "Наша команда" ==== */
 #team {
     padding: 80px 0;
-    background-color: var(--card-bg-color); /* Используем белый фон для секции, чтобы карточки выделялись */
+    background-color: var(--card-bg-color);
 }
 
 #team h2 {
@@ -257,9 +264,9 @@ nav ul li a:hover {
 }
 
 /* Унифицируем карточки: теперь и для сотрудников, и для услуг */
-.card { /* Новый общий класс для карточек */
+.card {
     background: var(--card-bg-color);
-    padding: 30px;
+    padding: 0; /* Общий padding убран, т.к. элементы управляют своим */
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     text-align: center;
@@ -267,6 +274,7 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden; /* Важно для карточек с изображением */
 }
 
 .card:hover {
@@ -276,45 +284,17 @@ nav ul li a:hover {
 /* ----- Стили SPECIFIC для карточек сотрудников (.team-member-card) ----- */
 .team-member-card {
     /* Наследует стили от .card */
-    background: var(--card-bg-color); /* Белый фон */
-    padding: 0; /* Убираем внутренний padding, т.к. есть дочерние элементы */
-    box-shadow: var(--card-shadow);
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden; /* Обрезаем элементы, выходящие за пределы */
-}
-
-.team-member-card:hover {
-    transform: translateY(-5px);
-}
-
-.team-member-img-wrapper {
-    background-color: var(--secondary-color); /* Золотистый фон для обертки фото */
-    padding: 20px; /* Отступ вокруг фото */
-    width: 100%; /* Чтобы обертка занимала всю ширину карточки */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.team-member-img-wrapper img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--light-text-color); /* Белая рамка вокруг круглого фото */
+    padding: 0; /* Убираем общий padding, т.к. внутренние элементы имеют свои */
+    /* Остальные стили .card применяются */
 }
 
 .team-member-info {
     padding: 25px; /* Внутренний отступ для текстовой части */
-    flex-grow: 1; /* Позволяет блоку информации растягиваться, если контент не заполняет все пространство */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Чтобы padding действовал правильно */
+    width: 100%;
 }
 
 .team-member-info h3 {
@@ -333,7 +313,7 @@ nav ul li a:hover {
 .team-member-description {
     font-size: 0.9em;
     color: var(--text-color);
-    margin-top: auto; /* Отодвигает блок вниз */
+    margin-top: auto;
 }
 
 .team-member-description p {
@@ -348,7 +328,7 @@ nav ul li a:hover {
     display: inline-block;
     margin: 0 8px;
     font-size: 1.2em;
-    color: var(--secondary-color); /* Иконки соц. сетей - золотистые */
+    color: var(--secondary-color);
     transition: color 0.3s ease;
 }
 
@@ -361,18 +341,8 @@ nav ul li a:hover {
 /* ----- Стили SPECIFIC для карточек услуг (.service-item) ----- */
 .service-item {
     /* Наследует стили от .card */
-    background: var(--card-bg-color);
-    padding: 30px;
-    box-shadow: var(--card-shadow);
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.service-item:hover {
-    transform: translateY(-5px);
+    padding: 30px; /* Услуги имеют внутренний padding, как раньше */
+    /* Остальные стили .card применяются */
 }
 
 .service-item h3 {
@@ -594,9 +564,20 @@ footer a:hover {
     .team-grid {
         grid-template-columns: 1fr;
     }
-    .team-member-img-wrapper img {
-        width: 120px;
-        height: 120px;
+    /* Убираем обертку фото из мобильной версии */
+    .team-member-img-wrapper {
+        display: none;
+    }
+    .team-member-card {
+        padding: 25px; /* Возвращаем padding для мобильной версии */
+        flex-direction: column; /* Карточки снова вертикальные */
+    }
+    .team-member-info {
+        width: 100%; /* Полная ширина */
+        padding: 0;
+    }
+    .team-member-description {
+        margin-top: 0;
     }
 }
 
@@ -619,4 +600,5 @@ footer a:hover {
         font-size: 0.9em;
     }
 }
+
 
