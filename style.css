@@ -3,11 +3,11 @@
     --primary-color: #003366; /* Темно-синий */
     --secondary-color: #DAA520; /* Золотисто-желтый */
     --background-color: #F4F6F8; /* Светло-серый */
-    --text-color: #333; /* Темный серый для основного текста */
+    --text-color: #003366; /* <-- Теперь основной текст - темно-синий */
     --light-text-color: #fff; /* Белый текст */
     --accent-color: #F4F6F8; /* Светло-серый (можно использовать как акцент, если нужно) */
     --border-color: #ccc; /* Светло-серый для границ */
-    --economy-bg-color: #f0f8ff; /* Очень светлый синий для раздела экономики (можно подобрать под основную палитру) */
+    --economy-bg-color: #e0f0ff; /* Очень светлый синий для раздела экономики */
 }
 
 body {
@@ -15,8 +15,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    color: var(--text-color);
-    background-color: var(--background-color); /* Используем новую переменную */
+    color: var(--text-color); /* Используем новый основной цвет текста */
+    background-color: var(--background-color);
 }
 
 .container {
@@ -27,7 +27,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Заголовки - темно-синий */
 }
 
 h2 {
@@ -36,7 +36,7 @@ h2 {
 }
 
 a {
-    color: var(--secondary-color); /* Золотисто-желтый для ссылок */
+    color: var(--secondary-color); /* Ссылки - золотистые */
     text-decoration: none;
 }
 
@@ -58,12 +58,12 @@ ul {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Добавим transition для цвета */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
     background: var(--secondary-color); /* При наведении - золотистый */
-    color: var(--text-color); /* Меняем цвет текста на темный */
+    color: var(--text-color); /* Цвет текста кнопки при наведении */
 }
 
 /* Header */
@@ -164,9 +164,9 @@ nav ul li a:hover {
 
 #about p {
     font-size: 1.1em;
-    max-width: 800px; /* Ограничиваем ширину текста для читаемости */
+    max-width: 800px;
     margin: 0 auto 20px auto;
-    color: var(--text-color); /* Основной текст - темно-серый */
+    color: var(--text-color); /* Основной текст - темно-синий */
 }
 
 /* --- Стили для раздела "Экономика" --- */
@@ -209,7 +209,7 @@ nav ul li a:hover {
     margin-bottom: 10px;
     font-size: 0.95em;
     text-align: left;
-    color: var(--text-color); /* Основной текст в списках - темно-серый */
+    color: var(--text-color); /* Основной текст в списках - темно-синий */
 }
 
 .economy-section li ul { /* Для вложенных списков */
@@ -237,6 +237,84 @@ nav ul li a:hover {
 #about .container > p:last-of-type {
     margin-bottom: 0;
 }
+
+
+/* ==== Стили для раздела "Наша команда" ==== */
+#team {
+    padding: 80px 0;
+    background-color: var(--background-color); /* Фон секции - светло-серый */
+}
+
+#team h2 {
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    background: var(--light-text-color); /* Фон карточки сотрудника - белый */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Располагаем элементы карточки вертикально */
+    align-items: center; /* Центрируем содержимое карточки */
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 150px; /* Размер фото сотрудника */
+    height: 150px;
+    border-radius: 50%; /* Делаем фото круглым */
+    object-fit: cover; /* Обрезка фото, чтобы оно заполняло контейнер */
+    margin-bottom: 20px;
+    border: 4px solid var(--secondary-color); /* Золотистая рамка вокруг фото */
+}
+
+.team-member h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    color: var(--primary-color); /* Имя сотрудника - темно-синий */
+}
+
+.team-member p {
+    font-size: 0.95em;
+    color: var(--text-color); /* Должность - темно-синий */
+    margin-bottom: 15px;
+}
+
+.member-description {
+    font-size: 0.9em;
+    color: var(--text-color); /* Краткое описание - темно-синий */
+    margin-top: auto; /* Отодвигает кнопку вниз, если контент не заполняет все пространство */
+}
+
+.member-description p {
+    margin-bottom: 20px;
+}
+
+.btn-secondary { /* Стиль для кнопок "Подробнее" */
+    background: var(--secondary-color); /* Фон - золотистый */
+    color: var(--primary-color); /* Текст - темно-синий */
+    padding: 8px 15px;
+    font-size: 0.95em;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color); /* При наведении - темно-синий */
+    color: var(--light-text-color); /* Текст - белый */
+}
+/* ==== Конец стилей для раздела "Наша команда" ==== */
 
 
 /* Services Section */
@@ -276,7 +354,7 @@ nav ul li a:hover {
 
 .service-item p {
     font-size: 0.95em;
-    color: var(--text-color); /* Текст карточки - темно-серый */
+    color: var(--text-color); /* Текст карточки - темно-синий */
 }
 
 /* Contact Section */
@@ -308,7 +386,7 @@ nav ul li a:hover {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: var(--text-color); /* Метки - темно-серый */
+    color: var(--text-color); /* Метки - темно-синий */
 }
 
 .contact-form input[type="text"],
@@ -370,7 +448,7 @@ nav ul li a:hover {
 }
 
 .contact-info a {
-    color: var(--text-color); /* Ссылки в контактах - темно-серый */
+    color: var(--text-color); /* Ссылки в контактах - темно-синий */
 }
 
 .contact-info a:hover {
@@ -463,6 +541,15 @@ footer a:hover {
     .economy-section h4 {
         font-size: 1.1em;
     }
+
+    /* Адаптация раздела команды */
+    .team-grid {
+        grid-template-columns: 1fr; /* На маленьких экранах колонки располагаются друг под другом */
+    }
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -484,4 +571,3 @@ footer a:hover {
         font-size: 0.9em;
     }
 }
-
