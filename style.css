@@ -5,327 +5,338 @@
     --background-color: #F4F6F8; /* Светло-серый */
     --text-color: #333; /* Темный серый для основного текста */
     --light-text-color: #fff; /* Белый текст */
+    --border-color: #ccc;
+    --economy-bg-color: #eef7ff; /* Светло-голубой фон для раздела экономики */
 }
 
-/* Общие стили */
 body {
     font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+    background-color: #f4f4f4;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 { /* Добавили h4 для заголовков в экономике */
     color: var(--primary-color);
-}
-
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 5px;
 }
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
     text-align: center;
-    color: var(--primary-color);
-}
-
-h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 .btn {
     display: inline-block;
-    background-color: var(--secondary-color);
+    background: var(--primary-color);
     color: var(--light-text-color);
     padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+    background: var(--secondary-color);
 }
 
 /* Header */
-.site-header {
-    background-color: var(--primary-color);
+header {
+    background: var(--primary-color);
     color: var(--light-text-color);
-    padding: 15px 0;
-    border-bottom: 5px solid var(--secondary-color);
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: var(--secondary-color) 3px solid;
 }
 
-.site-header .container {
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Для адаптивности */
 }
 
 .logo h1 {
     color: var(--light-text-color);
-    margin-bottom: 0;
+    margin: 0;
     font-size: 2em;
 }
 
 .logo p {
-    color: var(--secondary-color);
+    color: var(--accent-color);
+    margin: 0;
     font-size: 0.9em;
-    margin-top: 0;
 }
 
-.site-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+nav ul {
     display: flex;
 }
 
-.site-nav li {
+nav ul li {
     margin-left: 20px;
 }
 
-.site-nav a {
+nav ul li a {
     color: var(--light-text-color);
-    font-weight: bold;
+    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
-.site-nav a:hover {
-    color: var(--secondary-color);
-}
-
-.header-search {
-    display: flex;
-    align-items: center;
-}
-
-.header-search input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    outline: none;
-}
-
-.header-search button {
-    background-color: var(--secondary-color);
-    color: var(--light-text-color);
-    padding: 8px 15px;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.header-search button:hover {
-    background-color: var(--primary-color);
-}
-
-/* --- Новый блок: Стили для выбора языка --- */
-.language-selector {
-    display: flex;
-    align-items: center;
-    margin-left: 20px; /* Отступ от предыдущего элемента */
-}
-
-.lang-btn {
-    background-color: transparent;
-    border: 1px solid var(--light-text-color);
-    color: var(--light-text-color);
-    padding: 5px 10px;
-    margin-left: 5px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.lang-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.lang-btn.active-lang {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border-color: var(--secondary-color);
-    font-weight: bold;
+nav ul li a:hover {
+    color: var(--accent-color);
 }
 
 /* Hero Section */
-.hero {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+#hero {
+    min-height: 400px;
+    /* Замените 'hero-bg.jpg' на путь к вашему фоновому изображению */
+    background: url('hero-bg.jpg') no-repeat center center/cover;
     text-align: center;
-    padding: 80px 0;
-    background-image: url('https://via.placeholder.com/1920x400?text=HEADER+IMAGE'); /* Замените на реальное изображение */
-    background-size: cover;
-    background-position: center;
+    color: var(--light-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
 }
 
-.hero::before { /* Полупрозрачный слой для лучшего контраста текста */
+#hero::before { /* Затемнение для лучшей читаемости текста */
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 51, 102, 0.7); /* Полупрозрачный темно-синий */
-}
-
-.hero .container {
-    position: relative; /* Чтобы контент был поверх псевдоэлемента */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-.hero h2 {
-    font-size: 3em;
+#hero .container {
+    position: relative; /* Чтобы контент был над затемнением */
+    z-index: 2;
+}
+
+#hero h2 {
+    font-size: 2.5em;
     margin-bottom: 20px;
     color: var(--light-text-color);
 }
 
-.hero p {
+#hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
 }
 
-/* Services Section */
-.services {
-    padding: 40px 0;
-    text-align: center;
+/* About Section */
+#about {
+    padding: 80px 0;
+    text-align: center; /* Центрируем текст в разделе "О нас" */
 }
 
-.service-items {
+#about h2 {
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.1em;
+    max-width: 800px; /* Ограничиваем ширину текста для читаемости */
+    margin: 0 auto 20px auto;
+}
+
+/* --- Стили для раздела "Экономика" --- */
+.economy-header { /* Стиль для заголовка раздела экономики */
+    text-align: center;
+    margin-top: 40px; /* Отступ сверху */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-size: 1.8em; /* Размер шрифта */
+}
+
+.economy-section {
+    margin-top: 20px; /* Отступ сверху, если идет после текста */
+    background-color: var(--economy-bg-color); /* Используем переменную цвета */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: left; /* Выравнивание текста по левому краю внутри раздела */
+    max-width: 800px; /* Ограничиваем ширину содержимого для читаемости */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.economy-section h4 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 5px;
+    text-align: left; /* Чтобы заголовки были по левому краю */
+}
+
+.economy-section ul {
+    margin-left: 20px; /* Отступ для списков */
+    margin-bottom: 20px;
+    text-align: left; /* Выравнивание списков по левому краю */
+}
+
+.economy-section li {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    text-align: left; /* Выравнивание элементов списка */
+}
+
+.economy-section li ul { /* Для вложенных списков (например, Команда проекта) */
+    margin-top: 8px;
+    margin-bottom: 5px;
+    list-style: disc; /* Круглые маркеры для вложенных списков */
+}
+
+.economy-section li ul li {
+    font-size: 0.9em; /* Немного меньше шрифт для вложенных списков */
+}
+
+.economy-section li ul li ul li { /* Для еще более глубоких списков */
+    font-size: 0.85em;
+}
+
+.economy-section li strong {
+    color: var(--primary-color); /* Выделяем ключевые слова */
+}
+
+/* Отступы для элементов внутри контейнера #about */
+#about .container > p {
+    margin-bottom: 20px; /* Увеличиваем отступ между параграфами */
+}
+/* Убираем нижний маргин у последнего параграфа в #about, если он последний, чтобы избежать лишнего отступа */
+#about .container > p:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* Services Section */
+#services {
+    background: var(--accent-color);
+    padding: 80px 0;
+}
+
+#services h2 {
+    margin-bottom: 40px;
+}
+
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 30px;
 }
 
 .service-item {
-    background-color: #fff;
-    padding: 20px;
+    background: var(--light-text-color);
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .service-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.service-item img {
-    max-width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid var(--secondary-color);
-    background-color: var(--background-color);
-    padding: 5px;
 }
 
 .service-item h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
     color: var(--primary-color);
-    margin-bottom: 10px;
 }
 
-/* About Section */
-.about {
-    background-color: #fff;
-    padding: 40px 0;
-}
-
-.about p {
-    margin-bottom: 15px;
-}
-
-/* Team Section */
-.team {
-    padding: 40px 0;
-}
-
-.team-members {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.team-member {
-    text-align: center;
-    flex-basis: 280px; /* Основа для каждого блока */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.team-member img {
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid var(--primary-color);
-}
-
-.team-member h3 {
-    margin-bottom: 5px;
-}
-
-.team-member p {
-    margin-bottom: 5px;
-    font-style: italic;
-}
-
-.team-member .contact-link {
-    margin-top: 15px;
-}
-
-.team-member .contact-link a {
-    color: var(--secondary-color);
-    font-weight: bold;
+.service-item p {
+    font-size: 0.95em;
 }
 
 /* Contact Section */
-.contact {
-    background-color: var(--background-color);
-    padding: 40px 0;
+#contact {
+    padding: 80px 0;
+}
+
+#contact h2 {
+    margin-bottom: 40px;
 }
 
 .contact-content {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-wrap: wrap; /* Для адаптивности */
+    gap: 40px;
+}
+
+.contact-form {
+    flex: 1; /* Занимает доступное пространство */
+    min-width: 300px; /* Минимальная ширина */
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Позволяет менять высоту */
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 .contact-info {
@@ -334,248 +345,134 @@ a:hover {
 }
 
 .contact-info h3 {
-    margin-bottom: 5px;
-    color: var(--primary-color);
+    margin-bottom: 20px;
 }
 
 .contact-info p {
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между иконкой и текстом */
 }
 
-.contact-form {
-    flex: 1;
-    min-width: 300px;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.contact-info i {
+    font-size: 1.2em;
+    color: var(--primary-color);
 }
 
-.form-group {
-    margin-bottom: 15px;
+.contact-info a {
+    color: var(--text-color); /* Цвет ссылок в контактах */
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.contact-info a:hover {
+    color: var(--primary-color);
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Чтобы padding не влиял на общую ширину */
-    outline: none;
+.social-links {
+    margin-top: 20px;
 }
 
-.form-group textarea {
-    resize: vertical; /* Позволяет менять высоту */
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
-/* Newsletter Section */
-.newsletter {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 40px 0;
-}
-
-.newsletter p {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-.newsletter input[type="email"] {
-    padding: 10px;
-    width: 300px;
-    max-width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    outline: none;
-}
-
-.newsletter .btn {
-    background-color: var(--secondary-color);
-    color: var(--light-text-color);
-    border-radius: 0 4px 4px 0;
-    padding: 10px 25px;
-}
-
-.newsletter .btn:hover {
-    background-color: var(--primary-color);
-}
-
-/* Footer */
-.site-footer {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
-}
-
-.site-footer p {
-    margin: 5px 0;
-}
-
-.site-footer a {
+.social-links a:hover {
     color: var(--secondary-color);
 }
 
-/* Адаптивность */
-@media (max-width: 992px) {
-    .site-header .container {
-        flex-direction: row; /* Возвращаем строку */
-        justify-content: space-between;
-        flex-wrap: wrap; /* Разрешаем перенос */
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+footer a:hover {
+    color: var(--light-text-color);
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
     }
-    .logo {
-        margin-right: auto; /* Логотип влево */
-        order: 1; /* Первый элемент */
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
     }
-    .language-selector {
-        margin-left: 0;
-        order: 2; /* Второй элемент */
-    }
-    .site-nav {
-        order: 4; /* Четвертый элемент */
-        width: 100%; /* Занимает всю ширину */
-        margin-top: 15px; /* Отступ сверху */
-    }
-    .site-nav ul {
+
+    nav ul {
+        margin-top: 15px;
         flex-direction: column;
         align-items: center;
-        margin-top: 0; /* Убираем отступ, чтобы лучше вписаться */
-    }
-    .site-nav li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-    .header-search {
-        order: 3; /* Третий элемент */
-        width: 100%;
-        justify-content: center;
-        margin-top: 15px;
-    }
-    .header-search input[type="text"] {
-        width: 60%;
     }
 
-    .hero h2 {
-        font-size: 2.5em;
+    nav ul li {
+        margin: 5px 0;
     }
 
-    .service-items {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .logo h1 {
+        font-size: 1.8em;
     }
 
-    .team-members {
-        justify-content: center;
+    #hero h2 {
+        font-size: 2em;
     }
 
     .contact-content {
         flex-direction: column;
-        align-items: center;
     }
 
-    .contact-info, .contact-form {
+    .contact-form, .contact-info {
+        flex: none; /* Сбросить flex-grow */
         width: 100%;
-        max-width: 500px; /* Ограничиваем ширину формы и инфо */
     }
 
-    .newsletter input[type="email"] {
-        width: 60%;
+    /* Адаптация раздела экономики */
+    .economy-section {
+        padding: 20px; /* Уменьшаем padding на маленьких экранах */
     }
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.8em; }
-    h3 { font-size: 1.3em; }
-
-    .hero h2 {
-        font-size: 2em;
+    .economy-header {
+        font-size: 1.6em;
     }
-    .hero p {
-        font-size: 1em;
-    }
-
-    .service-item, .team-member {
-        padding: 15px;
-    }
-
-    .service-item img, .team-member img {
-        max-width: 80px;
-        height: 80px;
-    }
-
-    .contact-form {
-        padding: 20px;
+    .economy-section h4 {
+        font-size: 1.1em;
     }
 }
 
 @media (max-width: 480px) {
-    .site-header .container {
-        flex-direction: column; /* Строго по одному */
-        align-items: center;
-    }
-    .logo {
-        margin-right: 0;
-        width: 100%;
-        text-align: center;
-        order: 1; /* Первый элемент */
-    }
-    .language-selector {
-        margin-top: 10px;
-        order: 2; /* Второй элемент */
-        width: 100%;
-        justify-content: center;
-    }
-    .lang-btn {
-        margin: 0 5px; /* Немного меняем отступы для кнопок */
-    }
-    .site-nav {
-        order: 3; /* Третий элемент */
-        width: 100%;
-    }
-    .site-nav ul {
-        margin-top: 15px; /* Добавляем отступ сверху */
-    }
-    .header-search {
-        order: 4; /* Четвертый элемент */
-        width: 100%;
-        justify-content: center;
-        margin-top: 15px;
-    }
-
-    .header-search input[type="text"],
-    .newsletter input[type="email"] {
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    .header-search button,
-    .newsletter .btn {
-        border-radius: 4px;
-        width: 100%;
-    }
-
-    .hero h2 {
+    #hero h2 {
         font-size: 1.8em;
     }
-    .hero p {
+    .btn {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+    /* Более компактные стили для маленьких экранов */
+    .economy-section {
+        padding: 15px;
+    }
+    .economy-section h4 {
+        font-size: 1.05em;
+    }
+    .economy-section li {
         font-size: 0.9em;
     }
-
-    .btn {
-        padding: 8px 15px;
-    }
-
-    .service-items, .team-members {
-        grid-template-columns: 1fr; /* В один столбец на маленьких экранах */
-    }
 }
+
