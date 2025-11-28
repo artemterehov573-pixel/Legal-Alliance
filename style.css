@@ -5,8 +5,9 @@
     --background-color: #F4F6F8; /* Светло-серый */
     --text-color: #333; /* Темный серый для основного текста */
     --light-text-color: #fff; /* Белый текст */
-    --border-color: #ccc;
-    --economy-bg-color: #eef7ff; /* Светло-голубой фон для раздела экономики */
+    --accent-color: #F4F6F8; /* Светло-серый (можно использовать как акцент, если нужно) */
+    --border-color: #ccc; /* Светло-серый для границ */
+    --economy-bg-color: #f0f8ff; /* Очень светлый синий для раздела экономики (можно подобрать под основную палитру) */
 }
 
 body {
@@ -15,7 +16,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text-color);
-    background-color: #f4f4f4;
+    background-color: var(--background-color); /* Используем новую переменную */
 }
 
 .container {
@@ -25,7 +26,7 @@ body {
     padding: 0 20px;
 }
 
-h1, h2, h3, h4 { /* Добавили h4 для заголовков в экономике */
+h1, h2, h3, h4 {
     color: var(--primary-color);
 }
 
@@ -35,12 +36,12 @@ h2 {
 }
 
 a {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Золотисто-желтый для ссылок */
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* При наведении - темно-синий */
 }
 
 ul {
@@ -50,27 +51,28 @@ ul {
 
 .btn {
     display: inline-block;
-    background: var(--primary-color);
+    background: var(--primary-color); /* Кнопки - темно-синие */
     color: var(--light-text-color);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Добавим transition для цвета */
 }
 
 .btn:hover {
-    background: var(--secondary-color);
+    background: var(--secondary-color); /* При наведении - золотистый */
+    color: var(--text-color); /* Меняем цвет текста на темный */
 }
 
 /* Header */
 header {
-    background: var(--primary-color);
+    background: var(--primary-color); /* Фон шапки - темно-синий */
     color: var(--light-text-color);
     padding-top: 20px;
     min-height: 70px;
-    border-bottom: var(--secondary-color) 3px solid;
+    border-bottom: var(--secondary-color) 3px solid; /* Нижняя граница - золотистая */
 }
 
 header .container {
@@ -86,7 +88,7 @@ header .container {
 }
 
 .logo p {
-    color: var(--accent-color);
+    color: var(--secondary-color); /* Подзаголовок - золотистый */
     margin: 0;
     font-size: 0.9em;
 }
@@ -100,13 +102,13 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--light-text-color);
+    color: var(--light-text-color); /* Ссылки в шапке - белые */
     font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: var(--accent-color);
+    color: var(--secondary-color); /* При наведении - золотистый */
 }
 
 /* Hero Section */
@@ -115,7 +117,7 @@ nav ul li a:hover {
     /* Замените 'hero-bg.jpg' на путь к вашему фоновому изображению */
     background: url('hero-bg.jpg') no-repeat center center/cover;
     text-align: center;
-    color: var(--light-text-color);
+    color: var(--light-text-color); /* Текст поверх изображения - белый */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,7 +131,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
     z-index: 1;
 }
 
@@ -141,18 +143,19 @@ nav ul li a:hover {
 #hero h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: var(--light-text-color);
+    color: var(--light-text-color); /* Заголовок - белый */
 }
 
 #hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
+    color: var(--light-text-color); /* Текст - белый */
 }
 
 /* About Section */
 #about {
     padding: 80px 0;
-    text-align: center; /* Центрируем текст в разделе "О нас" */
+    text-align: center;
 }
 
 #about h2 {
@@ -163,57 +166,60 @@ nav ul li a:hover {
     font-size: 1.1em;
     max-width: 800px; /* Ограничиваем ширину текста для читаемости */
     margin: 0 auto 20px auto;
+    color: var(--text-color); /* Основной текст - темно-серый */
 }
 
 /* --- Стили для раздела "Экономика" --- */
-.economy-header { /* Стиль для заголовка раздела экономики */
+.economy-header {
     text-align: center;
-    margin-top: 40px; /* Отступ сверху */
-    margin-bottom: 20px; /* Отступ снизу */
-    font-size: 1.8em; /* Размер шрифта */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: var(--primary-color); /* Заголовок - темно-синий */
 }
 
 .economy-section {
-    margin-top: 20px; /* Отступ сверху, если идет после текста */
-    background-color: var(--economy-bg-color); /* Используем переменную цвета */
+    margin-top: 20px;
+    background-color: var(--economy-bg-color); /* Очень светлый синий фон */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    text-align: left; /* Выравнивание текста по левому краю внутри раздела */
-    max-width: 800px; /* Ограничиваем ширину содержимого для читаемости */
+    text-align: left;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .economy-section h4 {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Заголовки - темно-синий */
     margin-top: 25px;
     margin-bottom: 15px;
-    border-bottom: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color); /* Разделитель - светло-серый */
     padding-bottom: 5px;
-    text-align: left; /* Чтобы заголовки были по левому краю */
+    text-align: left;
 }
 
 .economy-section ul {
-    margin-left: 20px; /* Отступ для списков */
+    margin-left: 20px;
     margin-bottom: 20px;
-    text-align: left; /* Выравнивание списков по левому краю */
+    text-align: left;
 }
 
 .economy-section li {
     margin-bottom: 10px;
     font-size: 0.95em;
-    text-align: left; /* Выравнивание элементов списка */
+    text-align: left;
+    color: var(--text-color); /* Основной текст в списках - темно-серый */
 }
 
-.economy-section li ul { /* Для вложенных списков (например, Команда проекта) */
+.economy-section li ul { /* Для вложенных списков */
     margin-top: 8px;
     margin-bottom: 5px;
-    list-style: disc; /* Круглые маркеры для вложенных списков */
+    list-style: disc; /* Круглые маркеры */
 }
 
 .economy-section li ul li {
-    font-size: 0.9em; /* Немного меньше шрифт для вложенных списков */
+    font-size: 0.9em;
 }
 
 .economy-section li ul li ul li { /* Для еще более глубоких списков */
@@ -221,14 +227,13 @@ nav ul li a:hover {
 }
 
 .economy-section li strong {
-    color: var(--primary-color); /* Выделяем ключевые слова */
+    color: var(--primary-color); /* Выделение ключевых слов - темно-синий */
 }
 
 /* Отступы для элементов внутри контейнера #about */
 #about .container > p {
-    margin-bottom: 20px; /* Увеличиваем отступ между параграфами */
+    margin-bottom: 20px;
 }
-/* Убираем нижний маргин у последнего параграфа в #about, если он последний, чтобы избежать лишнего отступа */
 #about .container > p:last-of-type {
     margin-bottom: 0;
 }
@@ -236,7 +241,7 @@ nav ul li a:hover {
 
 /* Services Section */
 #services {
-    background: var(--accent-color);
+    background-color: var(--background-color); /* Фон секции - светло-серый */
     padding: 80px 0;
 }
 
@@ -251,7 +256,7 @@ nav ul li a:hover {
 }
 
 .service-item {
-    background: var(--light-text-color);
+    background: var(--light-text-color); /* Фон карточки услуги - белый */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -266,11 +271,12 @@ nav ul li a:hover {
 .service-item h3 {
     margin-top: 0;
     margin-bottom: 15px;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Заголовок карточки - темно-синий */
 }
 
 .service-item p {
     font-size: 0.95em;
+    color: var(--text-color); /* Текст карточки - темно-серый */
 }
 
 /* Contact Section */
@@ -285,13 +291,13 @@ nav ul li a:hover {
 .contact-content {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Для адаптивности */
+    flex-wrap: wrap;
     gap: 40px;
 }
 
 .contact-form {
-    flex: 1; /* Занимает доступное пространство */
-    min-width: 300px; /* Минимальная ширина */
+    flex: 1;
+    min-width: 300px;
 }
 
 .contact-form .form-group {
@@ -302,6 +308,7 @@ nav ul li a:hover {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+    color: var(--text-color); /* Метки - темно-серый */
 }
 
 .contact-form input[type="text"],
@@ -309,14 +316,15 @@ nav ul li a:hover {
 .contact-form textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); /* Границы полей - светло-серый */
     border-radius: 5px;
-    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+    box-sizing: border-box;
     font-size: 1em;
+    color: var(--text-color); /* Цвет текста в полях */
 }
 
 .contact-form textarea {
-    resize: vertical; /* Позволяет менять высоту */
+    resize: vertical;
 }
 
 .form-message {
@@ -328,13 +336,13 @@ nav ul li a:hover {
 }
 
 .form-message.success {
-    background-color: #d4edda;
+    background-color: #d4edda; /* Зеленый фон для успеха */
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
 .form-message.error {
-    background-color: #f8d7da;
+    background-color: #f8d7da; /* Красный фон для ошибки */
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
@@ -346,26 +354,27 @@ nav ul li a:hover {
 
 .contact-info h3 {
     margin-bottom: 20px;
+    color: var(--primary-color); /* Заголовок контактов - темно-синий */
 }
 
 .contact-info p {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 10px; /* Расстояние между иконкой и текстом */
+    gap: 10px;
 }
 
 .contact-info i {
     font-size: 1.2em;
-    color: var(--primary-color);
+    color: var(--secondary-color); /* Иконки - золотистые */
 }
 
 .contact-info a {
-    color: var(--text-color); /* Цвет ссылок в контактах */
+    color: var(--text-color); /* Ссылки в контактах - темно-серый */
 }
 
 .contact-info a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* При наведении - темно-синий */
 }
 
 .social-links {
@@ -376,18 +385,18 @@ nav ul li a:hover {
     display: inline-block;
     margin-right: 15px;
     font-size: 1.5em;
-    color: var(--primary-color);
+    color: var(--secondary-color); /* Иконки соц. сетей - золотистые */
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color); /* При наведении - темно-синий */
 }
 
 /* Footer */
 footer {
-    background: var(--primary-color);
-    color: var(--light-text-color);
+    background: var(--primary-color); /* Фон футера - темно-синий */
+    color: var(--light-text-color); /* Текст футера - белый */
     text-align: center;
     padding: 30px 0;
     margin-top: 40px;
@@ -399,11 +408,11 @@ footer p {
 }
 
 footer a {
-    color: var(--accent-color);
+    color: var(--secondary-color); /* Ссылки в футере - золотистые */
 }
 
 footer a:hover {
-    color: var(--light-text-color);
+    color: var(--light-text-color); /* При наведении - белый */
 }
 
 /* Медиа-запросы для адаптивности */
@@ -440,13 +449,13 @@ footer a:hover {
     }
 
     .contact-form, .contact-info {
-        flex: none; /* Сбросить flex-grow */
+        flex: none;
         width: 100%;
     }
 
     /* Адаптация раздела экономики */
     .economy-section {
-        padding: 20px; /* Уменьшаем padding на маленьких экранах */
+        padding: 20px;
     }
     .economy-header {
         font-size: 1.6em;
