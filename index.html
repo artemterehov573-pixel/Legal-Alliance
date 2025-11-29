@@ -21,6 +21,7 @@
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#team">Наша команда</a></li>
                     <li><a href="#services">Услуги</a></li>
+                    <li><a href="#calculator">Калькулятор</a></li> <!-- Добавлена ссылка на калькулятор -->
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
@@ -197,6 +198,35 @@
         </div>
     </section>
 
+    <!-- ==== Новый раздел "Калькулятор" ==== -->
+    <section id="calculator">
+        <div class="container">
+            <h2>Калькулятор услуг</h2>
+            <div class="calculator-wrapper card">
+                <div class="calculator-inputs">
+                    <div class="form-group">
+                        <label for="service-type">Тип услуги:</label>
+                        <select id="service-type">
+                            <option value="1000">Юридическая консультация (1000 руб./час)</option>
+                            <option value="1500">Составление договора (1500 руб.)</option>
+                            <option value="2500">Представительство в суде (2500 руб./час)</option>
+                            <option value="800">Регистрация бизнеса (800 руб.)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hours">Количество часов (если применимо):</label>
+                        <input type="number" id="hours" value="1" min="1">
+                    </div>
+                </div>
+                <div class="calculator-result">
+                    <p><strong>Итоговая стоимость:</strong> <span id="total-cost">1000</span> руб.</p>
+                    <button id="calculate-btn" class="btn">Рассчитать</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==== Конец раздела "Калькулятор" ==== -->
+
     <section id="contact">
         <div class="container">
             <h2>Свяжитесь с нами</h2>
@@ -246,5 +276,4 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
