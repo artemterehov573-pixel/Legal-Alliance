@@ -10,7 +10,7 @@
     --economy-bg-color: #e0f0ff; /* Очень светлый синий для раздела экономики */
     --card-bg-color: #fff; /* Белый фон для карточек */
     --card-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Тень для карточек */
-    --hero-bg-color: #003366; /* Темно-синий фон для hero секции */
+    --hero-bg-color: #69727b; /* Серый фон для hero секции */
 }
 
 body {
@@ -117,21 +117,16 @@ nav ul li a:hover {
 /* Hero Section */
 #hero {
     min-height: 400px;
-    /* Фон hero секции теперь темно-синий, а текст на нем белый */
-    background-color: var(--hero-bg-color); /* Используем новую переменную */
+    background-color: var(--hero-bg-color); /* Серый фон */
     text-align: center;
     color: var(--light-text-color);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    /* Если хотите оставить фоновое изображение, то background-image: url('hero-bg.jpg'); */
-    /* и нужно будет убрать background-color или сделать его rgba, чтобы изображение было видно */
 }
 
-/* Если используется фоновое изображение, его затемнение */
-/*
-#hero::before {
+#hero::before { /* Затемнение для лучшей читаемости текста */
     content: '';
     position: absolute;
     top: 0;
@@ -141,7 +136,6 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
-*/
 
 #hero .container {
     position: relative;
@@ -263,10 +257,10 @@ nav ul li a:hover {
     gap: 30px;
 }
 
-/* Унифицируем карточки: теперь и для сотрудников, и для услуг */
+/* Общий класс для карточек */
 .card {
     background: var(--card-bg-color);
-    padding: 0; /* Общий padding убран, т.к. элементы управляют своим */
+    padding: 0;
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     text-align: center;
@@ -274,7 +268,7 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden; /* Важно для карточек с изображением */
+    overflow: hidden;
 }
 
 .card:hover {
@@ -283,13 +277,11 @@ nav ul li a:hover {
 
 /* ----- Стили SPECIFIC для карточек сотрудников (.team-member-card) ----- */
 .team-member-card {
-    /* Наследует стили от .card */
     padding: 0; /* Убираем общий padding, т.к. внутренние элементы имеют свои */
-    /* Остальные стили .card применяются */
 }
 
 .team-member-info {
-    padding: 25px; /* Внутренний отступ для текстовой части */
+    padding: 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -340,9 +332,7 @@ nav ul li a:hover {
 
 /* ----- Стили SPECIFIC для карточек услуг (.service-item) ----- */
 .service-item {
-    /* Наследует стили от .card */
     padding: 30px; /* Услуги имеют внутренний padding, как раньше */
-    /* Остальные стили .card применяются */
 }
 
 .service-item h3 {
@@ -373,6 +363,71 @@ nav ul li a:hover {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
+
+
+/* ==== Стили для раздела "Калькулятор" ==== */
+#calculator {
+    padding: 80px 0;
+    background-color: var(--card-bg-color); /* Белый фон, как у других карточек */
+}
+
+#calculator h2 {
+    margin-bottom: 40px;
+}
+
+.calculator-wrapper {
+    max-width: 600px; /* Ограничиваем ширину калькулятора */
+    margin: 0 auto;
+    padding: 30px; /* Добавляем padding, так как .card имеет padding: 0 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Пространство между группами полей */
+}
+
+.calculator-inputs,
+.calculator-result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Расстояние между элементами внутри блоков */
+}
+
+.calculator-inputs .form-group,
+.calculator-result p {
+    margin-bottom: 0; /* Убираем нижний отступ, т.к. gap уже есть */
+}
+
+.calculator-inputs label,
+.calculator-result p strong {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.calculator-inputs select,
+.calculator-inputs input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+#total-cost {
+    font-size: 1.3em;
+    color: var(--secondary-color); /* Выделяем стоимость золотистым */
+}
+
+#calculate-btn {
+    width: 100%; /* Кнопка на всю ширину */
+    padding: 12px;
+    font-size: 1.15em;
+}
+/* ==== Конец стилей для раздела "Калькулятор" ==== */
 
 
 /* Contact Section */
@@ -564,20 +619,24 @@ footer a:hover {
     .team-grid {
         grid-template-columns: 1fr;
     }
-    /* Убираем обертку фото из мобильной версии */
-    .team-member-img-wrapper {
-        display: none;
-    }
     .team-member-card {
-        padding: 25px; /* Возвращаем padding для мобильной версии */
-        flex-direction: column; /* Карточки снова вертикальные */
+        padding: 25px;
+        flex-direction: column;
     }
     .team-member-info {
-        width: 100%; /* Полная ширина */
+        width: 100%;
         padding: 0;
     }
     .team-member-description {
         margin-top: 0;
+    }
+
+    /* Адаптация калькулятора */
+    .calculator-wrapper {
+        padding: 20px;
+    }
+    .calculator-inputs, .calculator-result {
+        gap: 15px;
     }
 }
 
@@ -600,5 +659,4 @@ footer a:hover {
         font-size: 0.9em;
     }
 }
-
 
