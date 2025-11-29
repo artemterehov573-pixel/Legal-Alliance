@@ -1,15 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
+// script.js
 
-    // ---------------------------------------------------------
-    // 1. ЛОГИСТИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ
-    // ---------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- 1. ЛОГИСТИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ ---
+    // ВАЖНО: Этот блок отвечает за мультиязычность.
+    // Если вы НЕ используете переключение языков, его можно удалить.
+    // Если вы хотите добавить новые языки, вам нужно будет:
+    // 1. Добавить новые кнопки с классом 'lang-btn' и атрибутом 'data-lang' (например, data-lang="en").
+    // 2. Добавить соответствующие переводы в объект `translations`.
+    // 3. Убедиться, что у элементов сайта есть атрибут `data-lang` с правильным ключом.
 
     const translations = {
         ru: {
             "nav-services": "Услуги",
             "nav-about": "О нас",
             "nav-contact": "Контакты",
-            "nav-team": "Команда", // Добавлено для меню
+            "nav-team": "Команда",
             "header-search-placeholder": "Поиск по сайту...",
             "header-search-button": "Поиск",
             "hero-title": "Ваша защита в мире права",
@@ -36,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
             "about-site-list-item-4": "<strong>Адаптивность:</strong> Сайт корректно отображается на любых устройствах – от настольных компьютеров до смартфонов.",
             "about-site-list-item-5": "<strong>Навигация:</strong> Интуитивно понятное меню и плавная прокрутка к разделам.",
             "team-title": "Наша Команда",
-            "team-ivan-name": "Иван Петрович Петров",
-            "team-ivan-role": "Старший юрист",
+            "team-ivan-name": "[Имя Фамилия руководителя]", // Placeholder for actual name
+            "team-ivan-role": "Руководитель практики, Адвокат",
             "team-ivan-contact": "Связаться",
-            "team-anna-name": "Анна Сергеевна Сидорова",
+            "team-anna-name": "[Имя Фамилия юриста]", // Placeholder for actual name
             "team-anna-role": "Ведущий юрист",
             "team-anna-contact": "Связаться",
-            "team-sergey-name": "Сергей Николаевич Кузнецов",
+            "team-sergey-name": "[Имя Фамилия юриста]", // Placeholder for actual name
             "team-sergey-role": "Юрист",
             "team-sergey-contact": "Связаться",
             "contact-title": "Контакты и Обратная Связь",
@@ -63,13 +69,23 @@ document.addEventListener('DOMContentLoaded', () => {
             "newsletter-button": "Подписаться",
             "footer-copyright": "&copy; 2025 Правовой Альянс. Все права защищены.",
             "footer-privacy": "Политика конфиденциальности",
-            "footer-terms": "Условия использования"
+            "footer-terms": "Условия использования",
+            // Переводы для калькулятора
+            "calculator-title": "Калькулятор услуг",
+            "calculator-service-label": "Тип услуги:",
+            "calculator-service-option-1": "Юридическая консультация (1000 руб./час)",
+            "calculator-service-option-2": "Составление договора (1500 руб.)",
+            "calculator-service-option-3": "Представительство в суде (2500 руб./час)",
+            "calculator-service-option-4": "Регистрация бизнеса (800 руб.)",
+            "calculator-hours-label": "Количество часов (если применимо):",
+            "calculator-result-label": "Итоговая стоимость:",
+            "calculator-calculate-btn": "Рассчитать"
         },
         en: {
             "nav-services": "Services",
             "nav-about": "About Us",
             "nav-contact": "Contact",
-            "nav-team": "Team", // Added for navigation
+            "nav-team": "Team",
             "header-search-placeholder": "Search the site...",
             "header-search-button": "Search",
             "hero-title": "Your Protection in the World of Law",
@@ -96,22 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
             "about-site-list-item-4": "<strong>Responsiveness:</strong> The site displays correctly on all devices – from desktops to smartphones.",
             "about-site-list-item-5": "<strong>Navigation:</strong> Intuitive menu and smooth scrolling to sections.",
             "team-title": "Our Team",
-            "team-ivan-name": "Ivan P. Petrov",
+            "team-ivan-name": "[Ivan P. Petrov]", // Placeholder for actual name
             "team-ivan-role": "Senior Lawyer",
             "team-ivan-contact": "Contact",
-            "team-anna-name": "Anna S. Sidirova",
+            "team-anna-name": "[Anna S. Sidirova]", // Placeholder for actual name
             "team-anna-role": "Lead Lawyer",
             "team-anna-contact": "Contact",
-            "team-sergey-name": "Sergey N. Kuznetsov",
+            "team-sergey-name": "[Sergey N. Kuznetsov]", // Placeholder for actual name
             "team-sergey-role": "Lawyer",
             "team-sergey-contact": "Contact",
             "contact-title": "Contact & Feedback",
             "contact-address-title": "Address:",
             "contact-address-text": "15 Pravovaya St., Office 301, Moscow, Russia",
             "contact-phone-title": "Phone:",
-            "contact-phone-link": "+7 (916) 748-00-40", // Используем тот же номер, что и в русском
+            "contact-phone-link": "+7 (916) 748-00-40",
             "contact-email-title": "Email:",
-            "contact-email-link": "artem.terehov738@mail.ru", // Email может остаться тем же
+            "contact-email-link": "artem.terehov738@mail.ru",
             "contact-form-title": "Send us a message",
             "contact-form-name-label": "Your Name:",
             "contact-form-email-label": "Your Email:",
@@ -123,28 +139,40 @@ document.addEventListener('DOMContentLoaded', () => {
             "newsletter-button": "Subscribe",
             "footer-copyright": "&copy; 2025 Legal Alliance. All rights reserved.",
             "footer-privacy": "Privacy Policy",
-            "footer-terms": "Terms of Use"
+            "footer-terms": "Terms of Use",
+            // Translations for calculator
+            "calculator-title": "Service Calculator",
+            "calculator-service-label": "Service Type:",
+            "calculator-service-option-1": "Legal Consultation (1000 RUB/hour)",
+            "calculator-service-option-2": "Contract Drafting (1500 RUB)",
+            "calculator-service-option-3": "Court Representation (2500 RUB/hour)",
+            "calculator-service-option-4": "Business Registration (800 RUB)",
+            "calculator-hours-label": "Number of hours (if applicable):",
+            "calculator-result-label": "Total Cost:",
+            "calculator-calculate-btn": "Calculate"
         }
     };
 
     let currentLang = 'ru'; // Язык по умолчанию
 
+    // Функция для установки языка
     function setLanguage(lang) {
         currentLang = lang;
-        const elements = document.querySelectorAll('[data-lang]');
+        const elements = document.querySelectorAll('[data-lang]'); // Выбираем все элементы с атрибутом data-lang
 
         elements.forEach(element => {
             const key = element.getAttribute('data-lang');
             if (translations[lang] && translations[lang][key] !== undefined) {
-                element.innerHTML = translations[lang][key];
+                element.innerHTML = translations[lang][key]; // Устанавливаем HTML-контент из переводов
             } else {
-                // Опционально: Если перевод не найден, можно оставить оригинальный текст или вывести сообщение
-                // console.warn(`Translation for key "${key}" not found for language "${lang}"`);
+                // Опционально: Если перевод не найден, можно оставить оригинальный текст или вывести сообщение в консоль
+                console.warn(`Translation for key "${key}" not found for language "${lang}"`);
             }
         });
 
-        document.documentElement.lang = lang; // Обновляем атрибут lang у тега html
+        document.documentElement.lang = lang; // Обновляем атрибут lang у тега html для SEO и доступности
 
+        // Обновляем класс 'active-lang' для кнопок переключения языка
         document.querySelectorAll('.lang-btn').forEach(button => {
             if (button.getAttribute('data-lang') === lang) {
                 button.classList.add('active-lang');
@@ -153,9 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        localStorage.setItem('siteLanguage', lang); // Сохраняем выбор в localStorage
+        localStorage.setItem('siteLanguage', lang); // Сохраняем выбор языка в localStorage, чтобы он сохранился при перезагрузке
     }
 
+    // Добавляем слушатели на кнопки переключения языка
     const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -164,120 +193,127 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Инициализация: загружаем язык по умолчанию или из localStorage
+    // Инициализация: загружаем язык при первой загрузке страницы
     const savedLang = localStorage.getItem('siteLanguage');
     if (savedLang && translations[savedLang]) {
-        setLanguage(savedLang);
+        setLanguage(savedLang); // Если язык сохранен, используем его
     } else {
-        setLanguage(currentLang); // Загружаем русский язык по умолчанию
+        setLanguage(currentLang); // Иначе используем язык по умолчанию (русский)
     }
 
 
-    // ---------------------------------------------------------
-    // 2. ДРУГИЕ ФУНКЦИИ (ПОИСК, ПОДПИСКА, ОБРАТНАЯ СВЯЗЬ, ПРОКРУТКА)
-    // ---------------------------------------------------------
+    // --- 2. ФУНКЦИЯ ОТПРАВКИ ФОРМЫ ОБРАТНОЙ СВЯЗИ ---
+    // Это скрипт для отправки формы contact-form.
+    // ВАЖНО: Для реальной отправки вам потребуется бэкенд (например, Netlify Functions, Node.js API, PHP скрипт и т.д.)
+    // И URL в fetch нужно будет изменить.
 
-    // --- Поиск ---
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
+    const subscribeForm = document.getElementById('subscribe-form');
+    const formMessageDiv = document.getElementById('form-message');
 
-    if (searchButton && searchInput) {
-        searchButton.addEventListener('click', () => {
-            const query = searchInput.value.trim();
-            if (query) {
-                // Адаптируем сообщение об ошибке для поиска под текущий язык
-                const searchAlertMsg = currentLang === 'en'
-                    ? `Searching for: "${query}"\n(Real search functionality requires server-side implementation or complex client-side logic.)`
-                    : `Поиск по запросу: "${query}"\n(Реальная функция поиска требует серверной части или сложной клиентской логики.)`;
-                alert(searchAlertMsg);
-            } else {
-                const noQueryAlertMsg = currentLang === 'en'
-                    ? "Please enter a search query."
-                    : "Введите запрос для поиска.";
-                alert(noQueryAlertMsg);
-            }
-        });
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
 
-        searchInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                searchButton.click();
-            }
-        });
-    }
+            const formData = new FormData(subscribeForm);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
 
-    // --- Подписка на новости ---
-    const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterEmailInput = document.getElementById('newsletterEmail');
+            // Очищаем предыдущие сообщения и сбрасываем стили
+            formMessageDiv.textContent = '';
+            formMessageDiv.className = 'form-message';
 
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+            try {
+                // !!! ЗАМЕНИТЕ '/.netlify/functions/subscribe' НА АКТУАЛЬНЫЙ URL ВАШЕГО API !!!
+                // Если вы не используете Netlify Functions, укажите свой endpoint.
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
 
-            const email = newsletterEmailInput.value.trim();
+                const result = await response.json(); // Ожидаем JSON-ответ от сервера
 
-            if (email && email.includes('@')) {
-                const successAlertMsg = currentLang === 'en'
-                    ? `Thank you for subscribing! Your email: ${email} has been added.`
-                    : `Спасибо за подписку! Ваш email: ${email} добавлен.`;
-                alert(successAlertMsg);
-                newsletterEmailInput.value = '';
-            } else {
-                const invalidEmailAlertMsg = currentLang === 'en'
-                    ? "Please enter a valid email address."
-                    : "Пожалуйста, введите корректный email.";
-                alert(invalidEmailAlertMsg);
+                if (response.ok) { // Если запрос успешен (код 2xx)
+                    formMessageDiv.textContent = result.message || 'Ваш запрос успешно отправлен!';
+                    formMessageDiv.classList.add('success');
+                    subscribeForm.reset(); // Очищаем поля формы
+                } else { // Если произошла ошибка на сервере (код > 299)
+                    formMessageDiv.textContent = result.message || 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже.';
+                    formMessageDiv.classList.add('error');
+                }
+            } catch (error) { // Если произошла сетевая ошибка или другая проблема при выполнении fetch
+                console.error('Error sending message:', error);
+                formMessageDiv.textContent = 'Произошла непредвиденная ошибка. Пожалуйста, проверьте ваше интернет-соединение или попробуйте позже.';
+                formMessageDiv.classList.add('error');
             }
         });
     }
 
-    // --- Обратная связь ---
-    const feedbackForm = document.getElementById('feedbackForm');
-    const feedbackNameInput = document.getElementById('name');
-    const feedbackEmailInput = document.getElementById('email');
-    const feedbackMessageTextarea = document.getElementById('message');
+    // --- 3. ЛОГИКА КАЛЬКУЛЯТОРА ---
+    const serviceTypeSelect = document.getElementById('service-type');
+    const hoursInput = document.getElementById('hours');
+    const totalCostSpan = document.getElementById('total-cost');
+    const calculateBtn = document.getElementById('calculate-btn');
 
-    if (feedbackForm) {
-        feedbackForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+    // Функция для обновления стоимости
+    function updateCost() {
+        const selectedService = serviceTypeSelect ? serviceTypeSelect.value : null;
+        const hours = hoursInput ? parseInt(hoursInput.value) : 1;
 
-            const name = feedbackNameInput.value.trim();
-            const email = feedbackEmailInput.value.trim();
-            const message = feedbackMessageTextarea.value.trim();
+        // Проверяем, существуют ли все нужные элементы
+        if (!serviceTypeSelect || !hoursInput || !totalCostSpan || !calculateBtn) {
+            console.warn("Calculator elements not found. Skipping updateCost.");
+            return;
+        }
 
-            if (name && email && email.includes('@') && message) {
-                const successAlertMsg = currentLang === 'en'
-                    ? `Your message has been sent!\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n(Real message sending requires server-side implementation.)`
-                    : `Ваше сообщение отправлено!\nИмя: ${name}\nEmail: ${email}\nСообщение: ${message}\n(Реальная отправка сообщения требует серверной части.)`;
-                alert(successAlertMsg);
-                feedbackNameInput.value = '';
-                feedbackEmailInput.value = '';
-                feedbackMessageTextarea.value = '';
-            } else {
-                const invalidFormAlertMsg = currentLang === 'en'
-                    ? "Please fill in all fields correctly (Email must contain '@')."
-                    : "Пожалуйста, заполните все поля корректно (Email должен содержать '@').";
-                alert(invalidFormAlertMsg);
-            }
-        });
+        if (selectedService && !isNaN(hours) && hours >= 1) {
+            const costPerHour = parseInt(selectedService);
+            const totalCost = costPerHour * hours;
+            totalCostSpan.textContent = totalCost.toLocaleString('ru-RU'); // Форматируем вывод числа
+        } else {
+            totalCostSpan.textContent = 'N/A'; // Если данные некорректны
+        }
     }
 
-    // --- Плавная прокрутка к секциям при клике на ссылки в меню ---
-    document.querySelectorAll('.site-nav a[href^="#"]').forEach(anchor => {
+    // Добавляем слушатели событий, только если элементы существуют
+    if (serviceTypeSelect) {
+        serviceTypeSelect.addEventListener('change', updateCost);
+    }
+
+    if (hoursInput) {
+        hoursInput.addEventListener('input', updateCost); // Обновляем при каждом вводе
+    }
+
+    if (calculateBtn) {
+        calculateBtn.addEventListener('click', updateCost);
+    }
+
+    // Инициализация стоимости при загрузке страницы
+    if (totalCostSpan) {
+        updateCost(); // Вызываем при первой загрузке, чтобы установить начальное значение
+    }
+
+    // --- 4. ПЛАВНАЯ ПРОКРУТКА ПО ССЫЛКАМ В МЕНЮ ---
+    // Этот скрипт обеспечивает плавную прокрутку при клике на навигационные ссылки.
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Предотвращаем стандартное действие (переход по ссылке)
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const targetId = this.getAttribute('href'); // Получаем ID элемента, на который ведет ссылка
+            const targetElement = document.querySelector(targetId); // Находим этот элемент
 
             if (targetElement) {
+                // Плавная прокрутка к элементу
                 targetElement.scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth' // 'smooth' обеспечивает плавную анимацию
                 });
             }
         });
     });
 
 });
-
 
